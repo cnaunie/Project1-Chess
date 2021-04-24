@@ -26,8 +26,6 @@ class Board
 	bool moveKnight(Square* thisKnight, Square* thatSpace);
 	bool moveRook(Square* thisRook, Square* thatSpace);
 	bool movePawn(Square* thisPawn, Square* thatSpace);
-	bool makeMove(int x1, int y1, int x2, int y2);
-	void printBoard();
 	
 	
 public:
