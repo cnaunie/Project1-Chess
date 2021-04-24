@@ -32,18 +32,13 @@ private:
 		void availablePositions(int);
 		bool isValidMove(Piece*);
 		void pieceAtPosition();
-	
+		positions targetPositionCoor = { 0, 0 };
+		positions selectedPieceCoor = { 0, 0 };
+		string displayBoard[17][19];
 	};
 
-public:
-	Square* getSquare(int x, int y) {
-		return &square[x][y];
-	}
-	void setSquare(Square * s, int x, int y){
-		square[x][y]=*s;
-	}
-	bool doMove();
+#endif
 
-	void setBoard();
-	bool playGame();
-};
+	
+
+
