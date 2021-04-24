@@ -27,13 +27,14 @@ class Board
 	bool moveRook(Square* thisRook, Square* thatSpace);
 	bool movePawn(Square* thisPawn, Square* thatSpace);
 	
-	
-public:
-		GameBoard(void);
-		~GameBoard(void);
-		struct positions {
-			int x;
-			int y;
-		};
+Check board[8][8];
+		void Display();
+		void clearBoard();
+		void testAvailablePositions(int curPlayer);
+		int isCheck();
+		bool isCheckMate(int);
+		bool validateMoveRules(string, int);
+		void convertMovetoPositions(string);
+		void clearPositions(int);
 	
 	
