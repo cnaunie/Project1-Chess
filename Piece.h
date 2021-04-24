@@ -10,7 +10,7 @@ using namespace std;
 //Class for player movement
 
 class Piece {
-public:
+private:
 	Piece();
 	~Piece();
 	Piece(string nm, int pl, int iny, int inx, int mm);
