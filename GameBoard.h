@@ -34,3 +34,16 @@ private:
 		void pieceAtPosition();
 	
 	};
+
+public:
+	Square* getSquare(int x, int y) {
+		return &square[x][y];
+	}
+	void setSquare(Square * s, int x, int y){
+		square[x][y]=*s;
+	}
+	bool doMove();
+
+	void setBoard();
+	bool playGame();
+};
