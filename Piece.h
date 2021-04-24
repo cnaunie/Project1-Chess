@@ -6,3 +6,11 @@
 #include<iostream>
 #pragma comment(lib, "gdiplus.lib")
 using namespace std;
+
+//Class for player movement
+
+class Piece {
+public:
+	Piece();
+	~Piece();
+	Piece(string nm, int pl, int iny, int inx, int mm);
