@@ -14,3 +14,11 @@ public:
 	Piece();
 	~Piece();
 	Piece(string nm, int pl, int iny, int inx, int mm);
+int player = 0;
+	int movesMade = 0;
+	int x = 0;
+	string name;
+	struct positions {
+		int x;
+		int y;
+	};
