@@ -22,3 +22,13 @@ int player = 0;
 		int x;
 		int y;
 	};
+positions defaultPosition = { 0, 0 };
+	vector<positions> movements;
+	vector<positions> pawnTakes;
+	vector<positions> availablePositions;
+	bool direction = false;
+	bool pawn = false;
+	
+};
+
+#endif
