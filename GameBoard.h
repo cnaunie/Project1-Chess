@@ -27,4 +27,10 @@ Check board[8][8];
 		void convertMovetoPositions(string);
 		void clearPositions(int);
 	
+private:
+		void movePiece();
+		void availablePositions(int);
+		bool isValidMove(Piece*);
+		void pieceAtPosition();
 	
+	};
