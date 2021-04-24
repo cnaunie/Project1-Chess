@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include<vector>
+#include <Windows.h>
 
 using namespace std;
 	class GameBoard {
