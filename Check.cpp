@@ -1,7 +1,12 @@
 #include "Check.h"
 
-Check::Check()
+Check::Check(void)
 {
-	piece = EMPTY;
-	color = NONE;
+	piece = nullptr;
+
+}
+Check::Check(Piece* p) {
+
+	piece = p;
+
 }
