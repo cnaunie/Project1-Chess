@@ -45,3 +45,18 @@ void GameBoard::movePiece() {
 	cout << "Move successful" << endl;
 	//Sleep(450);
 }
+void GameBoard::availablePositions(int targetPlayer) {
+	for (int y = 0; y < 8; y++) {
+		for (int x = 0; x < 8; x++) {
+			Piece* currentPiece = board[y][x].piece;
+			// looping trhough all pieces
+			if (currentPiece != nullptr && currentPiece->player == targetPlayer) {
+				
+				// looping trhough all possible movements of a piece
+				int length = currentPiece->movements.size();
+				for (int i = 0; i < length; i++) {
+					if (currentPiece->direction && !currentPiece->pawn) {
+
+						// find all available positions in a direction
+						positions movement = { currentPiece->movements[i].x, currentPiece->movements[i].y };
+						positions currentPos = { x, y };
