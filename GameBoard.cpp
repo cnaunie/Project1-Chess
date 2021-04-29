@@ -293,3 +293,60 @@ void GameBoard::availablePositions(int targetPlayer) {
 
 					}
 					else if (currentPiece->pawn && currentPiece->player == 2) {
+						// black pawn logic
+						positions movement = { currentPiece->movements[i].x, currentPiece->movements[i].y };
+						positions currentPos = { x, y };
+						
+						// up
+						if (movement.y < 0 && movement.x == 0) {
+							// loop for step movement
+							int iy = (currentPos.y - 1);
+							int ix = currentPos.x;
+							if (iy < 8 && iy >= 0 && ix < 8 && ix >= 0) {
+								if (board[iy][ix].piece == nullptr) {
+									currentPiece->availablePositions.push_back({ ix, iy });
+									if (currentPiece->movesMade == 0 && iy < 8 && iy >= 0 && ix < 8 && ix >= 0) {
+										iy = iy - 1;
+										if (board[iy][ix].piece == nullptr) {
+											currentPiece->availablePositions.push_back({ ix, iy });
+										}
+									}
+								}
+							}
+						}
+						// up & left
+						// looping trhough pawntakes 
+						int lengthpw = currentPiece->pawnTakes.size();
+						for (int i = 0; i < lengthpw; i++) {
+							if (currentPiece->pawnTakes[i].y < 0 && currentPiece->pawnTakes[i].x < 0) {
+								int iy = (currentPos.y - 1);
+								int ix = (currentPos.x - 1);
+								if (iy < 8 && iy >= 0 && ix < 8 && ix >= 0) {
+									if (board[iy][ix].piece != nullptr) {
+										if (board[iy][ix].piece->player != currentPiece->player) {
+											currentPiece->availablePositions.push_back({ ix, iy });
+										}
+									}
+								}
+							}
+						}
+						// up & right
+						for (int i = 0; i < lengthpw; i++) {
+							if (currentPiece->pawnTakes[i].y < 0 && currentPiece->pawnTakes[i].x > 0) {
+								int iy = (currentPos.y - 1);
+								int ix = (currentPos.x + 1);
+								if (iy < 8 && iy >= 0 && ix < 8 && ix >= 0) {
+									if (board[iy][ix].piece != nullptr) {
+										if (board[iy][ix].piece->player != currentPiece->player) {
+											currentPiece->availablePositions.push_back({ ix, iy });
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
