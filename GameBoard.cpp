@@ -350,3 +350,14 @@ void GameBoard::availablePositions(int targetPlayer) {
 		}
 	}
 }
+bool GameBoard::isValidMove(Piece* selectedPiece) {
+	// if target position  == to availablePosition return true
+	int length = selectedPiece->availablePositions.size();
+	for (int i = 0; i < length; i++) {
+		positions availablePosition = { selectedPiece->availablePositions[i].x, selectedPiece->availablePositions[i].y};
+		if (targetPositionCoor.x == availablePosition.x && targetPositionCoor.y == availablePosition.y) {
+			return true;
+		}
+	}
+	cout << selectedPiece->name << " can not move this way!" << endl;
+	return false;	  
