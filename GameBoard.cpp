@@ -361,3 +361,27 @@ bool GameBoard::isValidMove(Piece* selectedPiece) {
 	}
 	cout << selectedPiece->name << " can not move this way!" << endl;
 	return false;	  
+}
+int GameBoard::isCheck() {
+	// if any of the opponent's pieces available position is the position of the King return true
+	for (int y = 0; y < 8; y++) {
+		for (int x = 0; x < 8; x++) {
+			Piece* currentPiece = board[y][x].piece;
+			if (currentPiece != nullptr) {
+				if (currentPiece->name == "KB") {
+					positions blackKing = { x, y };
+					for (int iy = 0; iy < 8; iy++) {
+						for (int ix = 0; ix < 8; ix++) {
+							Piece* currentPiece = board[iy][ix].piece;
+
+							if (currentPiece != nullptr && currentPiece->player != 2) {
+								int length = currentPiece->availablePositions.size();
+									for (int i = 0; i < length; i++) {
+										if (currentPiece->availablePositions[i].x == blackKing.x && currentPiece->availablePositions[i].y == blackKing.y) {
+											return 2;
+									}
+								}
+							}
+						}
+					}
+				}
